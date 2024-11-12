@@ -55,28 +55,44 @@ def cuir_oeuf_coque():
 
 def cuir_oeuf_mollet():
     print("Début de la cuisson :")
-    for i in range(180):
-        for y in range(10):
-            time.sleep(1)
-            i -= 1
+    duree_totale = 6 * 60
+    intervalle_particulier = 10
+    iteration = int(duree_totale / intervalle_particulier)
+
+    temps_ecoule = 0
+
+    for i in range(iteration):
+        for y in range(intervalle_particulier):
             print(".", end="", flush=True)
-        d = i
-        min = d//60
-        sec = d-min*60
-        print(f"Temps restant : {min}:{sec}")
+            temps_ecoule += 1
+            time.sleep(1)
+
+        temps_restant = duree_totale - temps_ecoule
+        minute = temps_restant // 60
+        secondes = temps_restant - minute * 60
+        print(f" Temps restant : {minute}:{secondes:02d}")
+
     print("Fin de la cuisson :")
     
 def cuir_oeuf_dur():
     print("Début de la cuisson :")
-    for i in range(180):
-        for y in range(10):
-            time.sleep(1)
-            i -= 1
+    duree_totale = 9 * 60
+    intervalle_particulier = 10
+    iteration = int(duree_totale / intervalle_particulier)
+
+    temps_ecoule = 0
+
+    for i in range(iteration):
+        for y in range(intervalle_particulier):
             print(".", end="", flush=True)
-        d = i
-        min = d//60
-        sec = d-min*60
-        print(f"Temps restant : {min}:{sec}")
+            temps_ecoule += 1
+            time.sleep(1)
+
+        temps_restant = duree_totale - temps_ecoule
+        minute = temps_restant // 60
+        secondes = temps_restant - minute * 60
+        print(f" Temps restant : {minute}:{secondes:02d}")
+
     print("Fin de la cuisson :")
 
 
