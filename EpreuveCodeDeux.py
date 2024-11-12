@@ -32,70 +32,30 @@ def demander_pour_continuer():
         print("Je n'ai pas compris votre saisie")
         return demander_pour_continuer()
     
-def cuir_oeuf_coque():
+def cuisson(time_sec, interval):
     print("Début de la cuisson :")
-    duree_totale = 3 * 60
-    intervalle_particulier = 10
-    iteration = int(duree_totale/intervalle_particulier)
-
+    iteration = int(time_sec / interval)
     temps_ecoule = 0
-
     for i in range(iteration):
-        for y in range(intervalle_particulier):
+        for y in range(interval):
             print(".", end="", flush=True)
             temps_ecoule += 1
             time.sleep(1)
 
-        temps_restant = duree_totale - temps_ecoule
+        temps_restant = time_sec - temps_ecoule
         minute = temps_restant // 60
         secondes = temps_restant - minute * 60
-        print(f" Temps restant : {minute}:{secondes:02d}")
+        print(f" Temps restant : {minute:02d}:{secondes:02d} minutes")
 
     print("Fin de la cuisson :")
 
-def cuir_oeuf_mollet():
+def cuisson_horloge(time_sec):
     print("Début de la cuisson :")
-    duree_totale = 6 * 60
-    intervalle_particulier = 10
-    iteration = int(duree_totale / intervalle_particulier)
-
-    temps_ecoule = 0
-
-    for i in range(iteration):
-        for y in range(intervalle_particulier):
-            print(".", end="", flush=True)
-            temps_ecoule += 1
-            time.sleep(1)
-
-        temps_restant = duree_totale - temps_ecoule
-        minute = temps_restant // 60
-        secondes = temps_restant - minute * 60
-        print(f" Temps restant : {minute}:{secondes:02d}")
-
+    for d in range(time_sec, 0, -1):
+        mins, secs = divmod(d, 60)
+        print(f"\rTemps restant : {mins:02d}:{secs:02d} minutes", end='', flush=True)
+        time.sleep(1)
     print("Fin de la cuisson :")
-    
-def cuir_oeuf_dur():
-    print("Début de la cuisson :")
-    duree_totale = 9 * 60
-    intervalle_particulier = 10
-    iteration = int(duree_totale / intervalle_particulier)
-
-    temps_ecoule = 0
-
-    for i in range(iteration):
-        for y in range(intervalle_particulier):
-            print(".", end="", flush=True)
-            temps_ecoule += 1
-            time.sleep(1)
-
-        temps_restant = duree_totale - temps_ecoule
-        minute = temps_restant // 60
-        secondes = temps_restant - minute * 60
-        print(f" Temps restant : {minute}:{secondes:02d}")
-
-    print("Fin de la cuisson :")
-
-
 # endregion
 
 # region Programme principale
@@ -109,17 +69,18 @@ def LancementProgramme():
         # boucle de conversion selon le mode choisi
         while True:
             if choix == "1":
-                cuir_oeuf_coque()
+                cuisson(180,10)
                 # demande de sortie du mode de conversion
                 if demander_pour_continuer() == False:
                     break
             elif choix == "2":
-                cuir_oeuf_mollet()
+                #cuisson(360,10)
+                cuisson_horloge(360)
                 # demande de sortie du mode de conversion
                 if demander_pour_continuer() == False:
                     break
             elif choix == "3":
-                cuir_oeuf_dur()
+                cuisson(540,10)
                 # demande de sortie du mode de conversion
                 if demander_pour_continuer() == False:
                     break
