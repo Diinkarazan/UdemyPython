@@ -1,6 +1,7 @@
 # region Imports
 import EpreuveCodeUn
 import EpreuveCodeDeux
+import EpreuveCodeTrois
 import EpreuveCodeUn_Modifie
 
 from EpreuveCodeUn_Modifie import *
@@ -24,15 +25,6 @@ def afficher_menu():
     print("********************************************\n")
     return input("Choisissez votre exercice : ")
 
-def demander_pour_continuer():
-    r = str(input("Voulez-vous continuer : o/n ?").lower())
-    if r == "o":
-        return True
-    elif r == "n":
-        return False
-    else:
-        print("Je n'ai pas compris votre saisie")
-        return demander_pour_continuer()
 # endregion
 
 # region Programme principale
@@ -47,18 +39,12 @@ while True:
         if choix == "1":
             EpreuveCodeUn.LancementProgramme()
             # demande de sortie du mode de conversion
-            if demander_pour_continuer() == False:
-                break
         elif choix == "2":
             EpreuveCodeDeux.LancementProgramme()
             # demande de sortie du mode de conversion
-            if demander_pour_continuer() == False:
-                break
         elif choix == "3":
-
+            EpreuveCodeTrois.LancementProgramme()
             # demande de sortie du mode de conversion
-            if demander_pour_continuer() == False:
-                break
         else:
             print("ERREUR : Veuillez saisir 1,2,3 ou 4 pour sortir.")
 
