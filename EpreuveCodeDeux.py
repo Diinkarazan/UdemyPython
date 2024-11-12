@@ -36,15 +36,20 @@ def cuir_oeuf_coque():
     print("Début de la cuisson :")
     duree_totale = 3 * 60
     intervalle_particulier = 10
-    for i in range(duree_totale):
-        if i % intervalle_particulier == 0:
-            temps_ecoule = duree_totale - i
-            minute = temps_ecoule // 60
-            secondes = temps_ecoule-minute*60
-            print(f"Temps restant : {minute}:{secondes:02d}")
-        else:
+    iteration = int(duree_totale/intervalle_particulier)
+
+    temps_ecoule = 0
+
+    for i in range(iteration):
+        for y in range(intervalle_particulier):
             print(".", end="", flush=True)
-        time.sleep(1)
+            temps_ecoule += 1
+            time.sleep(1)
+
+        temps_restant = duree_totale - temps_ecoule
+        minute = temps_restant // 60
+        secondes = temps_restant - minute * 60
+        print(f" Temps restant : {minute}:{secondes:02d}")
 
     print("Fin de la cuisson :")
 
