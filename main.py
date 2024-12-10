@@ -2,9 +2,7 @@
 import EpreuveCodeUn
 import EpreuveCodeDeux
 import EpreuveCodeTrois
-import EpreuveCodeUn_Modifie
-
-from EpreuveCodeUn_Modifie import *
+import EpreuveCodeQuatre
 # endregion
 
 
@@ -21,7 +19,8 @@ def afficher_menu():
     print("*     1 - Epreuve de code un                 *")
     print("*     2 - Epreuve de code deux               *")
     print("*     3 - Epreuve de code trois              *")
-    print("*     4 - Quitter                            *")
+    print("*     4 - Epreuve de code quatre             *")
+    print("*     5 - Quitter                            *")
     print("********************************************\n")
     return input("Choisissez votre exercice : ")
 
@@ -31,7 +30,7 @@ def afficher_menu():
 # boucle du menu
 while True:
     choix = afficher_menu()
-    if choix == "4":
+    if choix == "5":
         break
 
     # boucle de conversion selon le mode choisi
@@ -45,8 +44,11 @@ while True:
         elif choix == "3":
             EpreuveCodeTrois.LancementProgramme()
             # demande de sortie du mode de conversion
+        elif choix == "4":
+            EpreuveCodeQuatre.LancementProgramme()
+            # demande de sortie du mode de conversion
         else:
-            print("ERREUR : Veuillez saisir 1,2,3 ou 4 pour sortir.")
+            print("ERREUR : Veuillez saisir 1,2,3... ou 5 pour sortir.")
 
 # sortie du programme
 print("Fin du programme")
