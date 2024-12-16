@@ -19,7 +19,7 @@ def clear_screen():
 # region Programme principale
 # Lancement du programme principal
 def LancementProgramme():
-    
+    3**2
     # sortie du programme
     print("Fin du programme")
     exit()
