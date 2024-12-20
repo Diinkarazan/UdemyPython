@@ -17,3 +17,10 @@ def somme(titre, *nombres):
 
 print(somme("somme des notes", 15, 11, 18))
 
+def ma_fonction(a):
+    a = a + 1
+    print(a)
+ 
+a = 5
+ma_fonction(a)
+ma_fonction(a)
