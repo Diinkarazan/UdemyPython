@@ -42,7 +42,21 @@ def clear_screen():
     else:
         os.system('cls')
 
-
+def poser_question():
+    for q in QUESTIONS:
+        print(f" Question n°{q['numero']} : {q['question']}")
+        for c in q['choix']:
+            print(f"    {c}")
+        print("")
+        reponse = input("Votre réponse : ")
+        verif = q['reponse']
+        if reponse == verif[0]:
+            print("Bravo vous avez trouvé !")
+        else:
+            print("Mauvaise réponse : ")
+            print(f"Pays : {q['pays']}")
+            print(f"La bonne réponse était : ({verif[0]}) {verif[1]}")
+        print("")
 
 # endregion
 
@@ -51,21 +65,7 @@ def clear_screen():
 clear_screen()
 print("Début du programme - Questionnaire")
 print("")
-for q in QUESTIONS:
-    print(f" Question n°{q['numero']} : {q['question']}")
-    for c in q['choix']:
-        print(f"    {c}")
-    print("")
-    reponse = input("Votre réponse : ")
-    verif = q['reponse']
-    if reponse == verif[0]:
-        print("Bravo vous avez trouvé !")
-    else:
-        print("Mauvaise réponse : ")
-        print(f"Pays : {q['pays']}")
-        print(f"La bonne réponse était : ({verif[0]}) {verif[1]}")
-    print("")
-
+poser_question()
 print("")
 print("Fin du programme")
 # endregion
